@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
+import MainContent from './MainContent';
 
 function Home() {
   return (
    <Main>
-       <h1>Home</h1>
+       <MainContent />
    </Main> 
   )
 }
