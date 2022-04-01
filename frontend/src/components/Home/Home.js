@@ -13,5 +13,5 @@ function Home() {
 export default Home
 
 const Main = styled.div`
-    color:red;
-    `;
+   
+`;
