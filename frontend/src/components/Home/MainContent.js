@@ -6,6 +6,7 @@ import img2 from '../../Images/Multi Tunes Photos_Sliders/2.png'
 import img3 from '../../Images/Multi Tunes Photos_Sliders/3.png'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
+
 function MainContent() {
     const images = [
          img1 ,
@@ -47,7 +48,7 @@ function MainContent() {
 export default MainContent
 
 const LeftScreen = styled.div`
-    padding:200px 80px;
+    padding:20% 80px;
 
 `;
 
@@ -67,13 +68,14 @@ const LeftScreenContent = styled.div`
 `;
 
 const Main = styled.div`
+    height:100vh;
     display: flex;
     justify-content: space-between;
 `;
 
 const RightScreen = styled.div`
     margin: 40px;
-
+    padding-top:8%;
 
 
 `;

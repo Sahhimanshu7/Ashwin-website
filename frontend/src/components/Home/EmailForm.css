@@ -1,0 +1,62 @@
+.email-form{
+    display: flex;
+
+    margin:40px;
+    border-radius:15px;
+
+    display:flex;
+    justify-content:space-between;
+    border:1px solid white;
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+}
+
+.email-form-head{
+    padding: 20px 40px;
+    text-transform: uppercase;
+    line-height: 0.4em;
+}
+
+.email-form-head-text{
+    font-weight:900;
+    color:#F37527;
+}
+
+.email-form-head p{
+    color:#0C3A52;
+    font-weight: 400;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    align-items: center;
+}
+
+.email-name input{
+    width: 120%;
+    padding: 10px 10px;
+    border: 0.5px solid black;
+
+    font-size: 0.8em;
+    color:#0C3A52;
+    align-content: center;
+}
+
+.email-email input{
+    width: 120%;
+    padding: 10px 10px;
+    border: 0.5px solid black;
+    font-size: 0.8em;
+    color:#0C3A52;
+    align-content: center;
+}
+
+.button-container input{
+    border: 1px solid #F37527;
+    color: #FFFFFF;
+    border-radius: 10px;
+    background-color: #F37527;
+    padding:10px 40px;
+}
