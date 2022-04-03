@@ -59,4 +59,5 @@ form{
     border-radius: 10px;
     background-color: #F37527;
     padding:10px 40px;
+    cursor: pointer;
 }
