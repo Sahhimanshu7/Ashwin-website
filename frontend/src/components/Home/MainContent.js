@@ -48,7 +48,7 @@ function MainContent() {
 export default MainContent
 
 const LeftScreen = styled.div`
-    padding:20% 80px;
+    padding:15% 80px;
 
 `;
 
@@ -68,14 +68,14 @@ const LeftScreenContent = styled.div`
 `;
 
 const Main = styled.div`
-    height:100vh;
+    height:90vh;
     display: flex;
     justify-content: space-between;
 `;
 
 const RightScreen = styled.div`
     margin: 40px;
-    padding-top:8%;
+    padding-top:5%;
 
 
 `;
