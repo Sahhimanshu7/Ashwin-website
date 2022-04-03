@@ -11,9 +11,9 @@ function SecondPage() {
     <Main>
         <EmailForm />
         <LinkContainer>
-            <Links img={img1} text="INTRUMENTS"/>
-            <Links img={img2} text="MERCHANDISE"/>
-            <Links img={img3} text="SINGLE AND ALBUMS"/>
+            <Links img={img1} text="INTRUMENTS" button="SHOP"/>
+            <Links img={img2} text="MERCHANDISE" button="SHOP"/>
+            <Links img={img3} text="SINGLE & ALBUMS" button="SHOP"/>
         </LinkContainer>
         
     </Main>
