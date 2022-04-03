@@ -43,6 +43,7 @@ const ImageContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
+    margin-top:20px;
     text-align:center;
     h1{
         font-size:20px;

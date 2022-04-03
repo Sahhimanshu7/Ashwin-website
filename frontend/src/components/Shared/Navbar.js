@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import Logo from '../../Images/Horizontal Logo-01.png'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
+
 import {
-    Link
+   NavLink
   } from "react-router-dom";
+
 
 function Navbar() {
   return (
@@ -15,11 +17,31 @@ function Navbar() {
     </Image>
     <RightMenu>
     <Options>
-            <Link to={`/`}>Home</Link>
-            <Link to={`/about`}>About us</Link> 
-            <Link to={'/music'}>Music world</Link>
-            <Link to={'/blogs'}>Blogs</Link>
-            <Link to={'/contact'}>Contact</Link>     
+            <NavLink to={`/`}
+            style={({ isActive }) => ({
+                color: isActive ?  '#F37527': '#0C3A52',
+              })}
+            >Home</NavLink>
+            <NavLink to={`/about`} 
+            style={({ isActive }) => ({
+                color: isActive ?  '#F37527': '#0C3A52',
+              })}
+            >About us</NavLink> 
+            <NavLink to={'/music'} 
+            style={({ isActive }) => ({
+                color: isActive ?  '#F37527': '#0C3A52',
+              })}
+            >Music world</NavLink>
+            <NavLink to={'/blogs'} 
+            style={({ isActive }) => ({
+                color: isActive ?  '#F37527': '#0C3A52',
+              })}
+            >Blogs</NavLink>
+            <NavLink to={'/contact'} 
+            style={({ isActive }) => ({
+                color: isActive ?  '#F37527': '#0C3A52',
+              })}
+            >Contact</NavLink>     
     </Options>
     <Auth>
         <AccountCircleOutlinedIcon />

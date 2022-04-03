@@ -7,6 +7,7 @@ import Home from './components/Home/Home'
 import MusicWorld from './components/MusicWorld/MusicWorld'
 import Navbar from './components/Shared/Navbar'
 
+
 function App() {
   return (
     <>
