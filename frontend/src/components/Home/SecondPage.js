@@ -23,6 +23,7 @@ function SecondPage() {
 export default SecondPage
 
 const Main = styled.div`
+height:80vh;
 `;
 
 const LinkContainer = styled.div`

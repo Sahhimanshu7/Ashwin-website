@@ -68,7 +68,7 @@ const LeftScreenContent = styled.div`
 `;
 
 const Main = styled.div`
-    height:90vh;
+    height:80vh;
     display: flex;
     justify-content: space-between;
 `;
