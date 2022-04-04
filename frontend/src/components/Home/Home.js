@@ -15,7 +15,7 @@ function Home() {
        <ThirdPage />
        <FourthPage />
        <FifthPage />
-       <ContactUs />
+      <ContactUs />
    </Main> 
   )
 }

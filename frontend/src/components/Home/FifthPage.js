@@ -72,6 +72,8 @@ const Main = styled.div`
     padding:20px 40px;
     height:100%;
     background-color: #0C3A52;
+
+    padding:5% 0% 10% 0%;
 `;
 
 const Header = styled.div`

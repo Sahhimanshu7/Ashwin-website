@@ -18,7 +18,9 @@ connection.once('open', () => {
 });
 
 const userEmailRouter = require('./routes/userEmail.js');
+const userContactRouter = require('./routes/userContact.js');
 
 app.use('/userEmail', userEmailRouter);
+app.use('/userContact', userContactRouter);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
