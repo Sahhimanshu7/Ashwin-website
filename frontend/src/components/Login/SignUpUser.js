@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 const clientId = "480980048147-76u7kljjmrt8qnnr2la4ispp1fsoskii.apps.googleusercontent.com";
+
+
+
 
 function SignUpUser() {
     const [showloginButton, setShowloginButton] = useState(true);
@@ -41,6 +45,31 @@ function SignUpUser() {
         setShowloginButton(true);
         setShowlogoutButton(false);
     };
+    const responseFacebook =  async (responseFacebook) => {
+        console.log(responseFacebook);
+        console.log('Login Success:', responseFacebook.name);
+        
+        const {name, email, picture} = responseFacebook;
+        console.log(name, email, picture);
+    
+        const responseData = await fetch('/userSignUp/addUserSignUp',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name, email, imageUrl: picture.data.url})
+        })
+        const dataFacebook = await responseData.json();
+        if(dataFacebook === 'User added!'){
+            alert("Thank you for Contacting Us!");
+        }else{
+            alert("Error!");
+        }
+    }
+
+
+
+    
 
     return (
         <div>
@@ -62,6 +91,15 @@ function SignUpUser() {
                 >
                 </GoogleLogout> : null
             }
+            <FacebookLogin
+            appId="502334878106369"
+            autoLoad={false}
+            fields="name,email,picture"
+            callback={responseFacebook}
+            cssClass="my-facebook-button-class"
+            icon="fa-facebook"
+        />
+              
         </div>
     );
 }
