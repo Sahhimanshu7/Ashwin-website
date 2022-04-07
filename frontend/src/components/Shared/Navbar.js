@@ -44,7 +44,10 @@ function Navbar() {
             >Contact</NavLink>     
     </Options>
     <Auth>
+      <NavLink to={'/login'}
+      style={({color:'#F37527'})}>
         <AccountCircleOutlinedIcon />
+      </NavLink>
     </Auth>
     </RightMenu>
     </Main>

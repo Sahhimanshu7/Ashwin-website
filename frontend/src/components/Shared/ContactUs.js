@@ -17,6 +17,7 @@ function ContactUs() {
     const handleSubmit = async(e) => {
         e.preventDefault();
         const {name,email,number,message} = e.target;
+        console.log(name.value,email.value,number.value,message.value);
 
         const res = await fetch('/userContact/add',{
             method: 'POST',

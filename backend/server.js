@@ -17,10 +17,13 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 });
 
+
 const userEmailRouter = require('./routes/userEmail.js');
 const userContactRouter = require('./routes/userContact.js');
+const userSignUpRouter = require('./routes/userSignUp.js');
 
 app.use('/userEmail', userEmailRouter);
 app.use('/userContact', userContactRouter);
+app.use('/userSignUp', userSignUpRouter);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
