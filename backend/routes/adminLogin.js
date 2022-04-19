@@ -12,12 +12,8 @@ router.route('/find').post((req, res) => {
     const password = req.body.password;
 
     AdminLogin.findOne({username: username, password: password})
-    .then(AdminLogin => {
-        if(AdminLogin){
-            console.log("Admin Login Successful!");
-        }else{
-            console.log("Admin Login Failed!");
-        }
+    .then(() => {
+       res.send("Admin Login Successful!");
     })
     .catch(err => res.status(400).json('Error: ' + err));
 });

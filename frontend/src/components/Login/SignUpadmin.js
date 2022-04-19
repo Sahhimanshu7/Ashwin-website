@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 function SignUpadmin() {
     const [username,setUsername] = useState('');
@@ -15,23 +18,23 @@ function SignUpadmin() {
     const handleSubmit = async(e) => {
         e.preventDefault();
         const [username,password] = e.target;
+        
         console.log(username.value,password.value);
 
-        const res = await fetch('/adminLogin/find',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({username: username.value, password: password.value})
-        })
-        const data = await res.json();
-        if(data === 'User added!'){
-            setUsername('');
-            setPassword('');
-            alert("Thank you for Contacting Us!");
-        }else{
-            alert("Error!");
-        }
+        
+
+        axios.post('/adminLogin/find',{
+            username: username.value,
+            password: password.value
+        }).then(res => {
+            console.log(res.data);
+            if(res.data === 'Admin Login Successful!'){
+                localStorage.setItem('admin',true);
+                window.location.href = '/Admin/AdminPage';
+            }
+        }).catch(err => {
+            console.log(err);
+        });
     }
   return (
     <>
@@ -51,11 +54,13 @@ function SignUpadmin() {
             <div className='signin-button'>
                 <input className="button" type="submit" value="LOG IN" onKeyPress={(e) => e.key === 'Enter' && handleEnter()} />
             </div>
+            
         </form>
     </Form>
     </>
   )
 }
+
 
 export default SignUpadmin
 

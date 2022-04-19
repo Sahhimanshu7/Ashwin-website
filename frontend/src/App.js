@@ -9,6 +9,7 @@ import Navbar from './components/Shared/Navbar'
 import Login from './components/Login/Login.js'
 import SignUpUser from './components/Login/SignUpUser.js'
 import SignUpadmin from './components/Login/SignUpadmin'
+import AdminPage from './components/Admin/AdminPage'
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/signupUser' element={<SignUpUser />} />
                 <Route path='/signupAdmin' element={<SignUpadmin />} />
+                <Route path="/Your-Personal-profile/:id/:fullName" exact/>
+                <Route path='/Admin/AdminPage' element={<AdminPage />} />
      </Routes>
     </>
   )
