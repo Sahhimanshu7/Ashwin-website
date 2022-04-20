@@ -1,8 +1,15 @@
 import React from 'react'
 
+const signoutadmin = () => {
+    localStorage.setItem('admin',false);
+    window.location.href = '/';
+}
+
 function AdminPage() {
   return (
-    <div>Hello</div>
+    <div>Hello
+        <button className='signoutadmin' onClick={signoutadmin}>Sign out</button>
+    </div>
   )
 }
 

@@ -13,8 +13,8 @@ function Login() {
   return (
       <>
       <AdminPageLink admin='false'/>
-    <NavLink to={`/signupUser`}>{'Sign Up'}</NavLink>
-    <NavLink to={`/Signupadmin`}>{'Sign Up Admin'}</NavLink>
+      <NavLink to={`/signupUser`}>{'Sign Up'}</NavLink>
+      <NavLink to={`/Signupadmin`}>{'Sign Up Admin'}</NavLink>
     </>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import styled from 'styled-components';
 
 const clientId = "480980048147-76u7kljjmrt8qnnr2la4ispp1fsoskii.apps.googleusercontent.com";
 
@@ -11,6 +12,9 @@ const clientId = "480980048147-76u7kljjmrt8qnnr2la4ispp1fsoskii.apps.googleuserc
 function SignUpUser() {
     const [showloginButton, setShowloginButton] = useState(true);
     const [showlogoutButton, setShowlogoutButton] = useState(false);
+
+    const [showFacebookLogin, setShowFacebookLogin] = useState(true);
+    const [showFacebookLogout, setShowFacebookLogout] = useState(false);
     const onLoginSuccess = async (res) => {
         console.log('Login Success:', res.profileObj);
         setShowloginButton(false);
@@ -19,6 +23,8 @@ function SignUpUser() {
         
         const {name, email, imageUrl} = res.profileObj;
         console.log(name, email, imageUrl);
+        localStorage.setItem('profileImage',imageUrl);
+        
 
         const response = await fetch('/userSignUp/addUserSignUp',{
             method: 'POST',
@@ -29,9 +35,15 @@ function SignUpUser() {
         })
         const data = await response.json();
         if(data === 'User added!'){
-            alert("Thank you for Contacting Us!");
+            alert("User added!");
+            localStorage.setItem('user',true);
+            
+            
         }else{
-            alert("Error!");
+            alert("You have been signed up before!");
+            localStorage.setItem('user',true);
+            
+            
         }
     }
 
@@ -41,16 +53,24 @@ function SignUpUser() {
 
     const onSignoutSuccess = () => {
         alert("You have been logged out successfully");
+        localStorage.removeItem('profileImage');
+        
         console.clear();
         setShowloginButton(true);
         setShowlogoutButton(false);
+        window.location.reload(true);
     };
     const responseFacebook =  async (responseFacebook) => {
         console.log(responseFacebook);
         console.log('Login Success:', responseFacebook.name);
+
+        setShowFacebookLogin(false);
+        setShowFacebookLogout(true);
         
         const {name, email, picture} = responseFacebook;
         console.log(name, email, picture);
+
+        localStorage.setItem('profileImage',picture.data.url);
     
         const responseData = await fetch('/userSignUp/addUserSignUp',{
             method: 'POST',
@@ -62,9 +82,18 @@ function SignUpUser() {
         const dataFacebook = await responseData.json();
         if(dataFacebook === 'User added!'){
             alert("Thank you for Contacting Us!");
+            
+            localStorage.setItem('user',true);
         }else{
             alert("Error!");
+            localStorage.setItem('user',true);
         }
+    }
+    const FacebookLogout = () => {
+        setShowFacebookLogin(true);
+        setShowFacebookLogout(false);
+        localStorage.removeItem('profileImage');
+        window.location.reload(true);
     }
 
 
@@ -91,6 +120,7 @@ function SignUpUser() {
                 >
                 </GoogleLogout> : null
             }
+            {showFacebookLogin ? 
             <FacebookLogin
             appId="502334878106369"
             autoLoad={false}
@@ -98,10 +128,22 @@ function SignUpUser() {
             callback={responseFacebook}
             cssClass="my-facebook-button-class"
             icon="fa-facebook"
-        />
+        ></FacebookLogin> : null    
+        }
+        {showFacebookLogout ? 
+        <FaceBookLogout>
+            <button onClick={FacebookLogout}>Logout</button>
+        </FaceBookLogout> 
+        : null   
+    }
+            
+        
               
         </div>
     );
 }
 
 export default SignUpUser
+
+const FaceBookLogout = styled.div`
+`;

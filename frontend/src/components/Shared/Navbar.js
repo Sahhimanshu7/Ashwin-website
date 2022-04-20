@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Profiler } from 'react'
 import styled from 'styled-components'
 import Logo from '../../Images/Horizontal Logo-01.png'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
@@ -9,7 +9,27 @@ import {
   } from "react-router-dom";
 
 
+function ProfileImage(){
+  if(localStorage.getItem('profileImage') === null){
+    return(
+      <AccountCircleOutlinedIcon />
+    )
+  }else{
+    
+  return(
+    <ProfileImageDiv>
+    <img src={localStorage.getItem('profileImage')}/>
+    </ProfileImageDiv>
+  )
+  }
+}
 function Navbar() {
+
+  console.log(localStorage.getItem('profileImage'));
+
+  const profileImage = localStorage.getItem('profileImage');
+
+  
   return (
     <Main>
     <Image>
@@ -46,7 +66,8 @@ function Navbar() {
     <Auth>
       <NavLink to={'/login'}
       style={({color:'#F37527'})}>
-        <AccountCircleOutlinedIcon />
+        <ProfileImage />
+        {/* <AccountCircleOutlinedIcon /> */}
       </NavLink>
     </Auth>
     </RightMenu>
@@ -96,5 +117,15 @@ const RightMenu = styled.div`
     align-items:center;
 
     text-transform:uppercase;
+`;
+
+const ProfileImageDiv = styled.div`
+    img{
+      width:40px;
+      height:100%;
+      border-radius:50%;
+      background-color:white;
+
+    }
 `;
 
