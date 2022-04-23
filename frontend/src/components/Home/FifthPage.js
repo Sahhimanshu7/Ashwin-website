@@ -25,10 +25,10 @@ function FifthPage() {
             <LeftScreen>
                 <Slider>
                     <SimpleImageSlider
-                    width={506}
-                    height={280}
+                    width={620}
+                    height={410}
                     images={images}
-                    showBullets={true}
+                    
                     showNavs={true}
                     autoPlay={true}
                     autoPlayTime={1500}
@@ -104,6 +104,8 @@ const Content = styled.div`
 `;
 
 const LeftScreen = styled.div`
+
+margin-left:40px;
     
 `;
 
@@ -112,7 +114,7 @@ const Slider = styled.div`
     border-radius:10px;
     padding:3px;
     background-color:#F37527;
-    width:506px;
+    width:620px;
 `;
 
 const RightScreen = styled.div`
@@ -122,9 +124,10 @@ const RightScreen = styled.div`
 `;
 
 const Text = styled.h3`
-    font-size:20px;
+    font-size:25px;
     color: #FFFFFF;
     font-weight:700;
+    margin-right:40px;
 
     display:flex;
     flex-direction:column;
@@ -153,6 +156,7 @@ const Button = styled.button`
     background-color:#F37527;
 
     margin-top:40px;
+    margin-right:40px;
     text-transform:uppercase;
     font-weight:700;
     font-size:15px;

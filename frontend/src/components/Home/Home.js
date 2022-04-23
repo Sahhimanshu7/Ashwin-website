@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import ContactUs from '../Shared/ContactUs';
+import Footer from '../Shared/Footer';
 import FifthPage from './FifthPage';
 import FourthPage from './FourthPage';
 import MainContent from './MainContent';
@@ -11,11 +12,12 @@ function Home() {
   return (
    <Main>
        <MainContent />
-       <SecondPage />
-       <ThirdPage />
+       {/* <SecondPage /> */}
+       {/* <ThirdPage /> */}
        <FourthPage />
-       <FifthPage />
+       {/* <FifthPage /> */}
       <ContactUs />
+      <Footer />
    </Main> 
   )
 }

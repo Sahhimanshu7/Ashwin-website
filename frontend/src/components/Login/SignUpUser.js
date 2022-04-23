@@ -15,6 +15,9 @@ function SignUpUser() {
 
     const [showFacebookLogin, setShowFacebookLogin] = useState(true);
     const [showFacebookLogout, setShowFacebookLogout] = useState(false);
+
+    //Google login handler
+
     const onLoginSuccess = async (res) => {
         console.log('Login Success:', res.profileObj);
         setShowloginButton(false);
@@ -24,6 +27,8 @@ function SignUpUser() {
         const {name, email, imageUrl} = res.profileObj;
         console.log(name, email, imageUrl);
         localStorage.setItem('profileImage',imageUrl);
+        localStorage.setItem('profileName',name);
+        localStorage.setItem('profileEmail',email);
         
 
         const response = await fetch('/userSignUp/addUserSignUp',{
@@ -54,12 +59,16 @@ function SignUpUser() {
     const onSignoutSuccess = () => {
         alert("You have been logged out successfully");
         localStorage.removeItem('profileImage');
+        localStorage.removeItem('profileName');
+        localStorage.removeItem('profileEmail');
         
         console.clear();
         setShowloginButton(true);
         setShowlogoutButton(false);
         window.location.reload(true);
     };
+
+    //facebook login handler
     const responseFacebook =  async (responseFacebook) => {
         console.log(responseFacebook);
         console.log('Login Success:', responseFacebook.name);
@@ -71,6 +80,9 @@ function SignUpUser() {
         console.log(name, email, picture);
 
         localStorage.setItem('profileImage',picture.data.url);
+        localStorage.setItem('profileName',name);
+        localStorage.setItem('profileEmail',email);
+
     
         const responseData = await fetch('/userSignUp/addUserSignUp',{
             method: 'POST',
@@ -93,6 +105,8 @@ function SignUpUser() {
         setShowFacebookLogin(true);
         setShowFacebookLogout(false);
         localStorage.removeItem('profileImage');
+        localStorage.removeItem('profileName');
+        localStorage.removeItem('profileEmail');
         window.location.reload(true);
     }
 

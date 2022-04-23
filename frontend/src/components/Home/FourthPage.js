@@ -17,9 +17,9 @@ function FourthPage() {
             </HeaderSubText>
         </Header>
       <LinkWrapper>
-        <Links img={img1} text="Solo Artists & Bands" button="BOOK NOW"/>
-        <Links img={img2} text="Recording Studio" button="BOOK NOW"/>
-        <Links img={img3} text="Session Musicians" button="BOOK NOW"/>
+        <Links img={img1} text="Solo Artists & Bands" button="BOOK NOW" />
+        <Links img={img2} text="Recording Studio" button="BOOK NOW" />
+        <Links img={img3} text="Session Musicians" button="BOOK NOW" />
       </LinkWrapper>
     </Main>
   )
@@ -30,7 +30,7 @@ export default FourthPage
 const Main = styled.div`
     padding:20px 40px;
     height:100%;
-    background-color:#FFFFFF;
+    background-color:white;
 `;
 
 const Header = styled.div`

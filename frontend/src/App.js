@@ -10,6 +10,8 @@ import Login from './components/Login/Login.js'
 import SignUpUser from './components/Login/SignUpUser.js'
 import SignUpadmin from './components/Login/SignUpadmin'
 import AdminPage from './components/Admin/AdminPage'
+import CreateBlog from './components/Admin/CreateBlog'
+import BlogContent from './components/Admin/BlogContent'
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
                 <Route path='/signupAdmin' element={<SignUpadmin />} />
                 <Route path="/Your-Personal-profile/:id/:fullName" exact/>
                 <Route path='/Admin/AdminPage' element={<AdminPage />} />
+                <Route path='/Admin/CreateBlog' element={<CreateBlog />} />
+                <Route path='/Admin/BlogContent' element={<BlogContent />} />
      </Routes>
     </>
   )

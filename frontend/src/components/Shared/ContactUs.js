@@ -121,58 +121,59 @@ const ContactFormBody = styled.div`
         flex-direction: column;
     }
     .contact-name{
-        margin: 20px 0px;
+        margin: 15px 0px;
         align-self: flex-start;
     }
     .contact-email{
-        margin: 20px 0px;
+        margin: 15px 0px;
         align-self: flex-start;
     }
     .contact-number{
-        margin: 20px 0px;
+        margin: 15px 0px;
         align-self: flex-start;
     }
     .contact-message{
-        margin: 20px 0px;
+        margin: 15px 0px;
         align-self: flex-start;
     }
     .contact-name input{
         border: 1px solid black;
-        padding: 3px;
+        padding: 3px 10px;
 
-        width: 150%;
+        width: 280%;
         height: 40px;
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 700;
         color: #0C3A52;
     }
     .contact-email input{
         border: 1px solid black;
-        padding: 3px;
+        padding: 3px 10px;
 
-        width: 150%;
+        width: 280%;
         height: 40px;
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 700;
         color: #0C3A52;
     }
     .contact-number input{
         border: 1px solid black;
-        padding: 3px;
+        padding: 3px 10px;
 
-        width: 150%;
+        width: 280%;
         height: 40px;
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 700;
         color: #0C3A52;
     }
     .contact-message textarea{
         border: 1px solid black;
-        padding: 3px;
+        padding: 3px 10px;
 
-        width: 200%;
+        width: 270%;
         height: 100px;
-        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
         font-weight: 700;
         color: #0C3A52;
     }

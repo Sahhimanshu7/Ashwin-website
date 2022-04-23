@@ -34,10 +34,8 @@ function MainContent() {
         width={656}
         height={430}
         images={images}
-        showBullets={true}
-        showNavs={true}
         autoPlay={true}
-        autoPlayTime={1500}
+        autoPlayTime={2000}
       />
       </Slider>
     </RightScreen>
