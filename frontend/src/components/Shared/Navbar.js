@@ -4,6 +4,7 @@ import Logo from '../../Images/Horizontal Logo-01.png'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 
+
 import {
    NavLink
   } from "react-router-dom";
@@ -93,6 +94,11 @@ const Main = styled.div`
     justify-content:space-between;
     border:1px solid white;
     box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+    
+    background-color:white;
+    z-index:101;
+    
+    
 `;
 
 const Options = styled.div`

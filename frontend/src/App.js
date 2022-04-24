@@ -12,12 +12,29 @@ import SignUpadmin from './components/Login/SignUpadmin'
 import AdminPage from './components/Admin/AdminPage'
 import CreateBlog from './components/Admin/CreateBlog'
 import BlogContent from './components/Admin/BlogContent'
+import {StickyContainer, Sticky} from 'react-sticky';
 
 
 function App() {
   return (
-    <>
-    <Navbar />
+   
+    <StickyContainer>
+      <Sticky>
+      {({
+            style,
+
+            // the following are also available but unused in this example
+            isSticky,
+            wasSticky,
+            distanceFromTop,
+            distanceFromBottom,
+            calculatedHeight,
+          }) => (
+            <header style={style}>
+              <Navbar />
+            </header>
+          )}
+    </Sticky>
     <Routes>
                 <Route path="/" element={<Home />} />
                 <Route index element={<Home />} />
@@ -33,7 +50,8 @@ function App() {
                 <Route path='/Admin/CreateBlog' element={<CreateBlog />} />
                 <Route path='/Admin/BlogContent' element={<BlogContent />} />
      </Routes>
-    </>
+    </StickyContainer>
+    
   )
 }
 

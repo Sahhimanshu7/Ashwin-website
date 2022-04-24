@@ -78,6 +78,7 @@ const RightScreen = styled.div`
 
 `;
 const Slider = styled.div`
+    
     border:2px solid #F37527;
     border-radius:10px;
     padding:3px;
