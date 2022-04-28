@@ -3,29 +3,15 @@ import styled from 'styled-components';
 import ClearIcon from '@mui/icons-material/Clear';
 import Paragraph from './Paragraph';
 import Tags from './Tags';
-
-
-
-
-
+import Catagories from './Catagories';
 
 
 function BlogContent() {
     const [selectedImage, setSelectedImage] = useState(null);
+    
+    
 
     localStorage.setItem('selectedImage', selectedImage);
-    
-    if (selectedImage==null) {
-        var paragraphNumber = prompt("How many paragraphs do you want to add?");
-    }
-    
-    var paragraphArray = [];
-    for(var i = 0; i < paragraphNumber; i++){
-        paragraphArray.push(i);
-    }
-
-    
-
 
   return (
     <BlogContainer>
@@ -72,19 +58,22 @@ function BlogContent() {
       </BlogImageContainer>
       <BlogTextContainer>
           <BlogTitle>
-            <input type="text" placeholder="Title" /> 
+            <input type="text" placeholder="Title"  /> 
           </BlogTitle>
           <WriterName>
             <input type="text" placeholder="Writer Name" />
           </WriterName>
           <BlogText>
-              <div>
-              {paragraphArray.map(() => (
+              <div className='paragraph'>
+             
                     <Paragraph />
-                ))
-                }
+            
+                
                </div>
-               {/* <Tags /> */}
+               <div className='right-side'>
+               <Tags />
+               <Catagories />
+                </div>
                 
               
           </BlogText>
@@ -120,7 +109,7 @@ const Image = styled.div`
     button{
         position:absolute;
         top:180px;
-        left:120px;
+        left:160px;
         background-color:#F37527;
         border:none;
         color:white;
@@ -139,10 +128,11 @@ const AddImage = styled.div`
 `;
 
 const BlogTextContainer = styled.div`
+    width:80%;
 `;
 
 const BlogTitle = styled.div`
-    // transform:translatex(-210%);
+    
     margin-top:40px;
     input{
         width:100%;
@@ -155,10 +145,13 @@ const BlogTitle = styled.div`
 
 
     }
+    input:focus{
+        outline:none;
+    }
 `;
 
 const WriterName = styled.div`
-    // transform:translatex(-205%);
+    
     margin-top:10px;
     input{
         width:100%;
@@ -168,11 +161,24 @@ const WriterName = styled.div`
         font-size:15px;
         font-weight:bold;
     }
+    input:focus{
+        outline:none;
+    }
 `;
 
 const BlogText = styled.div`
 
     display:flex;
+    margin-top:30px;
+    justify-content:space-between;
+    width:;
+
+    .paragraph{
+        width:100%;
+        align-self:flex-start;
+    }
+
+   
     
 
 `;

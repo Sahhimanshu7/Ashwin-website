@@ -19,7 +19,7 @@ function App() {
   return (
    
     <StickyContainer>
-      <Sticky>
+      <Sticky topOffset={700}>
       {({
             style,
 
@@ -29,8 +29,9 @@ function App() {
             distanceFromTop,
             distanceFromBottom,
             calculatedHeight,
+            
           }) => (
-            <header style={style}>
+            <header style={style} isSticky={true} wasSticky={true}>
               <Navbar />
             </header>
           )}

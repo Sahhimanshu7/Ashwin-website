@@ -26,7 +26,7 @@ function ProfileImage(){
 }
 function Navbar() {
 
-  console.log(localStorage.getItem('profileImage'));
+  
 
   const profileImage = localStorage.getItem('profileImage');
 
