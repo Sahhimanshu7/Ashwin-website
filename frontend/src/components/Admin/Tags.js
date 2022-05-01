@@ -11,6 +11,7 @@ function Tags() {
         setTags(newTags);
     }
     
+    
   return (
     <Main>
         <H1>Tags</H1>
@@ -30,6 +31,7 @@ function Tags() {
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="36.489" height="36.489" viewBox="0 0 36.489 36.489">   <g id="Group_7529" data-name="Group 7529" transform="translate(-1548.482 -3842.989)">     <g id="Group_7521" data-name="Group 7521">       <rect id="Rectangle_1230" data-name="Rectangle 1230" width="36" height="36" rx="7.971" transform="translate(1548.482 3842.989)" fill="#fff"/>       <circle id="Ellipse_193" data-name="Ellipse 193" cx="9.26" cy="9.26" r="9.26" transform="translate(1557.467 3851.973)" fill="#0c3a52"/>     </g>   </g> </svg>
                     {tag}
+                    {localStorage.setItem('tags', tags)}
                     <button className='remove'
                     onClick={(e) => {
                         e.preventDefault();
@@ -52,16 +54,20 @@ function Tags() {
             <button className="add" onClick={(e) => {
                 e.preventDefault();
                 setTags([...tags, tag]);
+               
                 
                 
             }}>Add</button>
         </TagsContent>
         </TagsTags>
+       
     </Main>
   )
+  
 }
 
 export default Tags
+
 
 const Main = styled.div`
     background-color: #0C3A52;

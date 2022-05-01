@@ -6,10 +6,12 @@ function Paragraph() {
     const [heading, setHeading] = React.useState('');
     const [headings, setHeadings] = React.useState([]);
     const [paragraphs, setParagraphs] = React.useState([]);
+    const [exportParagraph, setExportParagraph] = React.useState([]);
    
     function removeParagraph(paragraph) {
         const newParagraphs = paragraphs.filter(p => p !== paragraph);
         setParagraphs(newParagraphs);
+        
     }
 
   return (
@@ -36,11 +38,14 @@ function Paragraph() {
         e.preventDefault();
         setParagraphs([...paragraphs,<H2>{heading}</H2>, paragraph]); //push the paragraph to the array
         setHeadings([...headings, heading]); //push the heading to the array
+        
         }} className='add'>Add</button>
-
+        {localStorage.setItem('paragraphs', JSON.stringify(paragraphs))}
         {paragraphs.map((paragraph)=>(
+            
             <div className='paragraph-container'>
                 {paragraph}
+                
                 <button className='remove'
                     onClick={(e) => {
                         e.preventDefault();
