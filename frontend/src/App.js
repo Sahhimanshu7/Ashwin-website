@@ -13,7 +13,9 @@ import AdminPage from './components/Admin/AdminPage'
 import CreateBlog from './components/Admin/CreateBlog'
 import BlogContent from './components/Admin/BlogContent'
 import {StickyContainer, Sticky} from 'react-sticky';
-
+import NepaliBlog from './components/Shared/NepaliBlog'
+import ForeignBlog from './components/Shared/ForeignBlog'
+import LocalBlog from './components/Shared/LocalBlog'
 
 function App() {
   return (
@@ -50,6 +52,9 @@ function App() {
                 <Route path='/Admin/AdminPage' element={<AdminPage />} />
                 <Route path='/Admin/CreateBlog' element={<CreateBlog />} />
                 <Route path='/Admin/BlogContent' element={<BlogContent />} />
+                <Route path='/NepaliBlog' element={<NepaliBlog />} />
+                <Route path='/ForeignBlog' element={<ForeignBlog />} />
+                <Route path='/LocalBlog' element={<LocalBlog />} />
      </Routes>
     </StickyContainer>
     

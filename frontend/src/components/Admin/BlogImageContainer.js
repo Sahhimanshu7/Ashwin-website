@@ -3,32 +3,85 @@ import styled from 'styled-components';
 import ClearIcon from '@mui/icons-material/Clear';
 import { useState } from 'react';
 import axios from 'axios';
+import LoadingDots from '../../Images/loading-dots.gif';
 
 function BlogImageCointainer() {
     const [selectedImage, setSelectedImage] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [inputContainsFile, setInputContainsFile] = useState(false);
+    const [imageID, setImageID] = useState(null);
+    const [progress, setProgress] = useState(0);
+    const [uploaded, setUploaded] = useState(false);
+
+    const fileUploadHandler = (e) => {
+        const fd = new FormData();
+        fd.append('image', selectedImage, selectedImage.name);
+        axios.post('/images/upload', fd, {
+            onUploadProgress: (progressEvent) => {
+                setProgress(Math.round((progressEvent.loaded * 100) / progressEvent.total));
+                console.log('Upload Progress: ' + Math.round((progressEvent.loaded * 100) / progressEvent.total) + '%');
+            }
+        }).then(res => {
+            setImageID(res.data.id);
+            console.log(res.data.id);
+            setLoading(false);
+            setInputContainsFile(false);
+            setUploaded(true);
+
+            localStorage.setItem('imageId', res.data.id);
+        }
+        ).catch(err => {
+            console.log(err);
+        }
+        );
+    } 
+
+
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-
-        axios.post('file/upload', {
-            image: selectedImage
-            }).then(res => {
-                console.log(res.data);
-            }).catch(err => {
-                console.log(err);
-            });
+        // e.preventDefault();
+        
+        setInputContainsFile(true);
+        setSelectedImage(e.target.files[0]);
+        
+    }
+    const handleClick = () => {
+        if(inputContainsFile) {
+        setLoading(true);
+        fileUploadHandler();
+        }
+        
     }
     
+    
   return (
+      <>
+      {selectedImage  && 
+       <UploadButtonDiv>
+           {!loading &&
+        <button onClick={handleClick}>Upload</button>
+           }
+         <LoadingDotsDiv>
+        {loading ? (<img src={LoadingDots} alt='loading' /> ): null}
+        
+        </LoadingDotsDiv>
+        </UploadButtonDiv>
+       }
     <BlogImageCointainerDiv>
-        <form onSubmit={handleSubmit}>
-        <button type='submit'>Submit</button>
+        
+       
+       
         
         {selectedImage && (
             <Image>
             <img alt="not fount" src={URL.createObjectURL(selectedImage)} />
             <br />
-            <button onClick={()=>setSelectedImage(null)}><ClearIcon /></button>
+            <button onClick={()=>{
+                setSelectedImage(null);
+               
+            }
+            
+            }><ClearIcon /></button>
             </Image>
         )}
         <br />
@@ -37,7 +90,7 @@ function BlogImageCointainer() {
         
         {!selectedImage && (
         <AddImage>
-        <label htmlFor="myImage" style={{ 
+        <label htmlFor="file" style={{ 
             background:"#F37527", 
             padding:"8px 12px",
             borderRadius:"5px",
@@ -45,20 +98,20 @@ function BlogImageCointainer() {
             color:"white",
             fontWeight:"bold",
             fontSize:"15px"
-             }}>
+             }}
+            
+             >
          Add Photo
         </label>
         <input
             accept=".png, .jpg, .jpeg"
             type="file"
-            name="myImage"
-            id='myImage'
+            name="file"
+            id='file'
             style={({ visibility: 'hidden' })}
-            onChange={(event) => {
-            console.log(event.target.files[0]);
-            setSelectedImage(event.target.files[0]);
-            }}
+            onChange={handleSubmit}
         />
+        
        
         
         </AddImage>
@@ -67,10 +120,11 @@ function BlogImageCointainer() {
         )}
         
          
-        </form>
-
+       
+        
   
      </BlogImageCointainerDiv>
+     </>
   )
 }
 
@@ -106,4 +160,28 @@ const Image = styled.div`
 const AddImage = styled.div`
     position:absolute;
     top:180px;
+`;
+
+const LoadingDotsDiv = styled.div`
+    position:absolute;
+    transform: translateX(-120%);
+    transform: translateY(-30%);
+    
+`;
+
+const UploadButtonDiv = styled.div`
+
+    position:absolute;
+    top:50vh;
+    left:80vh;
+
+    button{
+        background-color:#F37527;
+        border:none;
+        color:white;
+        font-size:15px;
+        padding:8px 12px;
+        border-radius:5px;
+    }
+
 `;

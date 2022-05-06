@@ -9,7 +9,11 @@ const newBlogSchema= new Schema({
 
     },
    
-
+    imageId : {
+        type : String,
+        required : true,
+        minlength: 3,
+    },
     
     writerName: {
         type: String,

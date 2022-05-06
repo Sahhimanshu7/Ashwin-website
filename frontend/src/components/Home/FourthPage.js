@@ -17,9 +17,9 @@ function FourthPage() {
             </HeaderSubText>
         </Header>
       <LinkWrapper>
-        <Links img={img1} text="Solo Artists & Bands" button="BOOK NOW" />
-        <Links img={img2} text="Recording Studio" button="BOOK NOW" />
-        <Links img={img3} text="Session Musicians" button="BOOK NOW" />
+        <Links img={img1} text="NEPALI MUSIC" button="READ" linkofBlog='/NepaliBlog'/>
+        <Links img={img2} text="FOREIGN MUSIC" button="READ" linkofBlog='/ForeignBlog'/>
+        <Links img={img3} text="LOCAL MUSIC" button="READ" linkofBlog='/LocalBlog'/>
       </LinkWrapper>
     </Main>
   )

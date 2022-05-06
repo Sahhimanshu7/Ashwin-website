@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-function Links({img, text, button, inputColor}) {
+function Links({img, text, button, inputColor, linkofBlog}) {
   return (
     <Main>
        
@@ -10,8 +10,8 @@ function Links({img, text, button, inputColor}) {
        
         <TextContainer inputColor={inputColor}>
             <h1>{text}</h1>
-            <Link to={`/music`}>
-                <button type="button">{button}</button>
+            <Link to={`${linkofBlog}`}>
+                <button type="button" >{button}</button>
             </Link>
         </TextContainer>
         

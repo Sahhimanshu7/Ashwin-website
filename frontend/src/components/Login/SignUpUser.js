@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import styled from 'styled-components';
+import swal from 'sweetalert';
 
 const clientId = "480980048147-76u7kljjmrt8qnnr2la4ispp1fsoskii.apps.googleusercontent.com";
 
@@ -10,11 +11,14 @@ const clientId = "480980048147-76u7kljjmrt8qnnr2la4ispp1fsoskii.apps.googleuserc
 
 
 function SignUpUser() {
+    
     const [showloginButton, setShowloginButton] = useState(true);
     const [showlogoutButton, setShowlogoutButton] = useState(false);
 
     const [showFacebookLogin, setShowFacebookLogin] = useState(true);
     const [showFacebookLogout, setShowFacebookLogout] = useState(false);
+
+  
 
     //Google login handler
 
@@ -45,9 +49,9 @@ function SignUpUser() {
             
             
         }else{
-            alert("You have been signed up before!");
+            swal("You have been signed up before!");
             localStorage.setItem('user',true);
-            
+            // window.location.href = '/';
             
         }
     }
@@ -57,7 +61,7 @@ function SignUpUser() {
     };
 
     const onSignoutSuccess = () => {
-        alert("You have been logged out successfully");
+        swal("You have been logged out successfully");
         localStorage.removeItem('profileImage');
         localStorage.removeItem('profileName');
         localStorage.removeItem('profileEmail');
@@ -65,7 +69,7 @@ function SignUpUser() {
         console.clear();
         setShowloginButton(true);
         setShowlogoutButton(false);
-        window.location.reload(true);
+        
     };
 
     //facebook login handler

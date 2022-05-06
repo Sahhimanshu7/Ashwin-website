@@ -26,11 +26,13 @@ const userContactRouter = require('./routes/userContact.js');
 const userSignUpRouter = require('./routes/userSignUp.js');
 const adminLogin = require('./routes/adminLogin.js');
 const newBlog = require('./routes/newBlog.js');
+const imagesRoutes = require('./routes/images.js');
 
 app.use('/userEmail', userEmailRouter);
 app.use('/userContact', userContactRouter);
 app.use('/userSignUp', userSignUpRouter);
 app.use('/adminLogin', adminLogin);
 app.use('/newBlog', newBlog);
+app.use('/images', imagesRoutes);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

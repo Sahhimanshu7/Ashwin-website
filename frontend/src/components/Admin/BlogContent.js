@@ -10,12 +10,7 @@ import BlogImageContainer from './BlogImageContainer';
 
 
 
-function BlogContent() {
-    
-    
-    
-
-    
+function BlogContent() { 
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,11 +26,12 @@ function BlogContent() {
         console.log(JSON.parse(localStorage.getItem('paragraphs')));
 
         axios.post('/newBlog/addNewBlog',{
-            title: description.value,
-            writerName: tags.value,
+            title: title.value,
+            writerName: description.value,
             paragraph: (localStorage.getItem('paragraphs')),
             catagories: (localStorage.getItem('catagories')),
-            tags: (localStorage.getItem('tags'))
+            tags: (localStorage.getItem('tags')),
+            imageId: (localStorage.getItem('imageId'))
         }).then(res => {
             console.log(res.data);
             if(res.data === 'Blog Added Successfully!'){
@@ -43,6 +39,7 @@ function BlogContent() {
                 localStorage.removeItem('paragraphs');
                 localStorage.removeItem('catagories');
                 localStorage.removeItem('selectedImage');
+                localStorage.removeItem('imageId');
             }
         }).catch(err => {
             console.log(err);
@@ -55,12 +52,7 @@ function BlogContent() {
   return (
     <BlogContainer>
         <BlogImageContainer />
-        <form method='POST' onSubmit={handleSubmit}>
-        
-        
- 
-        
-      
+        <form method='POST' onSubmit={handleSubmit}>    
       <BlogTextContainer>
           <BlogTitle>
             <input type="text" placeholder="Title"  /> 

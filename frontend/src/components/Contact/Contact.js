@@ -1,8 +1,13 @@
 import React from 'react'
+import ContactUs from '../Shared/ContactUs'
+import Footer from '../Shared/Footer'
 
 function Contact() {
   return (
-    <div>Contact</div>
+    <>
+    <ContactUs />
+    <Footer />
+    </>
   )
 }
 
