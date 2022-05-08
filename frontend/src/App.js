@@ -16,12 +16,13 @@ import {StickyContainer, Sticky} from 'react-sticky';
 import NepaliBlog from './components/Shared/NepaliBlog'
 import ForeignBlog from './components/Shared/ForeignBlog'
 import LocalBlog from './components/Shared/LocalBlog'
-
+import BlogsDisplay from './components/Blogs/BlogsDisplay'
+import Dashboard from './components/Login/Dashboard'
 function App() {
   return (
    
     <StickyContainer>
-      <Sticky topOffset={700}>
+      <Sticky topOffset={900}>
       {({
             style,
 
@@ -44,6 +45,7 @@ function App() {
                 <Route path='/about' element={<About />} />
                 <Route path='/music' element={<MusicWorld />} />
                 <Route path='/blogs' element={<Blogs />} />
+                <Route path='blogs/:id' element={<BlogsDisplay />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signupUser' element={<SignUpUser />} />
@@ -55,6 +57,7 @@ function App() {
                 <Route path='/NepaliBlog' element={<NepaliBlog />} />
                 <Route path='/ForeignBlog' element={<ForeignBlog />} />
                 <Route path='/LocalBlog' element={<LocalBlog />} />
+                <Route path='/dashboard' element={<Dashboard />} />
      </Routes>
     </StickyContainer>
     

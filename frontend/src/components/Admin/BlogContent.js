@@ -6,6 +6,7 @@ import Tags from './Tags';
 import Catagories from './Catagories';
 import axios from 'axios';
 import BlogImageContainer from './BlogImageContainer';
+import swal from 'sweetalert';
 
 
 
@@ -40,7 +41,13 @@ function BlogContent() {
                 localStorage.removeItem('catagories');
                 localStorage.removeItem('selectedImage');
                 localStorage.removeItem('imageId');
+               
             }
+            swal("Uploaded!", "Your Blog has been uploaded!", "success")
+            .then(() => {
+                window.location.reload();
+            }
+            );
         }).catch(err => {
             console.log(err);
         });

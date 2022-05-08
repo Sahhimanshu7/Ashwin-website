@@ -18,6 +18,7 @@ function SignUpUser() {
     const [showFacebookLogin, setShowFacebookLogin] = useState(true);
     const [showFacebookLogout, setShowFacebookLogout] = useState(false);
 
+    const [reload, setReload] = useState(false);
   
 
     //Google login handler
@@ -44,15 +45,60 @@ function SignUpUser() {
         })
         const data = await response.json();
         if(data === 'User added!'){
-            alert("User added!");
+            
             localStorage.setItem('user',true);
+            swal("You have been signed in","success", {
+                buttons: {
+                  cancel: "Cancel",
+                  catch: {
+                    text: "Sign in",
+                    value: "Reload",
+                  },
+                  
+                },
+              })
+              .then((value) => {
+                switch (value) {
+               
+                  
+               
+                  case "Reload":
+                    window.location.href='/';
+                    break;
+               
+                  default:
+                    swal("Please Reload to continue");
+                }
+              });
             
             
         }else{
-            swal("You have been signed up before!");
-            localStorage.setItem('user',true);
-            // window.location.href = '/';
             
+            localStorage.setItem('user',true); 
+            swal("You have signed up before", {
+                buttons: {
+                  cancel: "Cancel",
+                  catch: {
+                    text: "Sign in",
+                    value: "Reload",
+                  },
+                  
+                },
+              })
+              .then((value) => {
+                switch (value) {
+               
+                  
+               
+                  case "Reload":
+                    window.location.href='/';
+                    break;
+               
+                  default:
+                    swal("Please Reload to continue");
+                }
+              });
+                   
         }
     }
 
@@ -69,6 +115,7 @@ function SignUpUser() {
         console.clear();
         setShowloginButton(true);
         setShowlogoutButton(false);
+        window.location.href = '/';
         
     };
 
@@ -97,12 +144,13 @@ function SignUpUser() {
         })
         const dataFacebook = await responseData.json();
         if(dataFacebook === 'User added!'){
-            alert("Thank you for Contacting Us!");
-            
+            alert("User added!");
             localStorage.setItem('user',true);
+            localStorage.setItem('facbook',false);
         }else{
-            alert("Error!");
+            swal("You have been signed up before!");
             localStorage.setItem('user',true);
+            localStorage.setItem('facebook',false);
         }
     }
     const FacebookLogout = () => {
@@ -112,6 +160,7 @@ function SignUpUser() {
         localStorage.removeItem('profileName');
         localStorage.removeItem('profileEmail');
         window.location.reload(true);
+        localStorage.setItem('facebook',true);
     }
 
 
@@ -119,15 +168,19 @@ function SignUpUser() {
     
 
     return (
-        <div>
+        <Main>
+            <h1>Log in</h1>
+            <LogIn>
             { showloginButton ?
+            
                 <GoogleLogin
                     clientId={clientId}
-                    buttonText="Sign In"
+                    buttonText="Log in with Google"
                     onSuccess={onLoginSuccess}
                     onFailure={onLoginFailure}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
+                    autoLoad={false}
                 /> : null}
 
             { showlogoutButton ?
@@ -135,10 +188,12 @@ function SignUpUser() {
                     clientId={clientId}
                     buttonText="Sign Out"
                     onLogoutSuccess={onSignoutSuccess}
+                    isSignedIn={false}
+                    autoLoad={false}
                 >
                 </GoogleLogout> : null
             }
-            {showFacebookLogin ? 
+            {showFacebookLogin? 
             <FacebookLogin
             appId="502334878106369"
             autoLoad={false}
@@ -146,22 +201,56 @@ function SignUpUser() {
             callback={responseFacebook}
             cssClass="my-facebook-button-class"
             icon="fa-facebook"
-        ></FacebookLogin> : null    
+            
+        /> : null    
         }
-        {showFacebookLogout ? 
+        {localStorage.getItem('facebook') ? 
         <FaceBookLogout>
-            <button onClick={FacebookLogout}>Logout</button>
+            <button onClick={FacebookLogout}>Logout From Facebook</button>
         </FaceBookLogout> 
         : null   
     }
             
-        
+            </LogIn>
               
-        </div>
+        </Main>
     );
 }
 
 export default SignUpUser
 
 const FaceBookLogout = styled.div`
+button{
+background-color: #3b5998;
+color: white;
+border: none;
+padding: 10px;
+}
+`;
+const Main = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+    h1{
+        font-size: 40px;
+        font-weight: 900;
+        color: #F37527;
+    }
+`;
+
+const LogIn = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+    .my-facebook-button-class{
+        background-color: #3b5998;
+        color: white;
+        border: none;
+        padding: 10px;
+    }
 `;

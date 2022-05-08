@@ -4,6 +4,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { useState } from 'react';
 import axios from 'axios';
 import LoadingDots from '../../Images/loading-dots.gif';
+import swal from 'sweetalert';
 
 function BlogImageCointainer() {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -29,6 +30,8 @@ function BlogImageCointainer() {
             setUploaded(true);
 
             localStorage.setItem('imageId', res.data.id);
+
+            swal("Uploaded!", "Your image has been uploaded!", "success");
         }
         ).catch(err => {
             console.log(err);

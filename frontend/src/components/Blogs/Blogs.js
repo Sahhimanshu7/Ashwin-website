@@ -45,7 +45,7 @@ const MainContainer = styled.div`
 `;
 
 const Slider = styled.div`
-    width:92%;
+    width:91%;
     margin-left:50px;
     border:2px solid #F37527;
     border-radius:10px;

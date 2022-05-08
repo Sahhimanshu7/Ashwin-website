@@ -36,7 +36,7 @@ function Paragraph() {
     <ShowParagraph>
     <button onClick={(e)=>{
         e.preventDefault();
-        setParagraphs([...paragraphs,<H2>{heading}</H2>, paragraph]); //push the paragraph to the array
+        setParagraphs([...paragraphs,heading, paragraph]); //push the paragraph to the array
         setHeadings([...headings, heading]); //push the heading to the array
         
         }} className='add'>Add</button>

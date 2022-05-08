@@ -1,6 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import ContactUs from '../Shared/ContactUs'
+import Footer from '../Shared/Footer'
+import SignUpUser from './SignUpUser'
+
+import img1 from '../../Images/Musical Boy-01.png'
 
 function AdminPageLink() {
   if(localStorage.getItem('admin') === 'true'){
@@ -13,15 +18,43 @@ function AdminPageLink() {
 function Login() {
   return (
       <>
+      <Main>
       <RightScreen>
       <AdminPageLink admin='false'/>
-      <NavLink to={`/signupUser`}>{'Log In As User'}</NavLink>
+      <img src={img1} alt="logo" />
+
       </RightScreen>
+      <LeftScreen>
+       <SignUpUser />
+      </LeftScreen>
+      </Main>
+      <ContactUs />
+      <Footer />
     </>
   )
 }
 
 export default Login
 
+const Main = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+`;
 const RightScreen = styled.div`
+img{
+  width:100%;
+  height:70vh;
+}
+
+`;
+const LeftScreen = styled.div`
+height:70vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
 `;

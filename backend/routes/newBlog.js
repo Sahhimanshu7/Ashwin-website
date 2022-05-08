@@ -10,9 +10,18 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/searchid/:id').get((req, res) => {
+    NewBlog.find({
+        _id: req.params.id
+    })
+    .then(NewBlog => res.json(NewBlog))
+    .catch(err => res.status(400).json('Error: ' + err));
+}
+);
+
 router.route('/search/:searchText').get((req, res) => {
     const searchText = req.params.searchText;
-    console.log(searchText);
+   
     const agg = [
         {
             $search: {
