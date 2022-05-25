@@ -100,6 +100,12 @@ const ContactUsContainer = styled.div`
     justify-content: space-between;
 
     margin: 80px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
 `;
 
 const ContactForm = styled.div`
@@ -123,10 +129,14 @@ const ContactFormBody = styled.div`
     .contact-name{
         margin: 15px 0px;
         align-self: flex-start;
+
+      
     }
     .contact-email{
         margin: 15px 0px;
         align-self: flex-start;
+
+        
     }
     .contact-number{
         margin: 15px 0px;
@@ -145,6 +155,10 @@ const ContactFormBody = styled.div`
         font-size: 15px;
         font-weight: 700;
         color: #0C3A52;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
     }
     .contact-email input{
         border: 1px solid black;
@@ -155,6 +169,10 @@ const ContactFormBody = styled.div`
         font-size: 15px;
         font-weight: 700;
         color: #0C3A52;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
     }
     .contact-number input{
         border: 1px solid black;
@@ -165,6 +183,10 @@ const ContactFormBody = styled.div`
         font-size: 15px;
         font-weight: 700;
         color: #0C3A52;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
     }
     .contact-message textarea{
         border: 1px solid black;
@@ -176,6 +198,10 @@ const ContactFormBody = styled.div`
         font-size: 15px;
         font-weight: 700;
         color: #0C3A52;
+
+        @media (max-width: 768px) {
+            width: 120%;
+        }
     }
 `;
 
@@ -197,18 +223,35 @@ const RightSide = styled.div`
     flex-direction: column;
     font-size: 30px;
     font-weight: 700;
+    @media (max-width: 768px) {
+        font-size: 20px;
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
     p{
         font-size: 40px;
         padding: 0px;
+       
+       
     }
 
     .head{
         color: #F37527;
         align-self: flex-end;
+
+        @media (max-width: 768px) {
+            align-self: center;
+        }
     }
     .first-line{
         color: #0C3A52;
         align-self: flex-end;
+
+        @media (max-width: 768px) {
+            align-self: center;
+        }
     }
     .second-line{
         display: flex;
@@ -219,6 +262,10 @@ const RightSide = styled.div`
         .number{
             color: #0C3A52;
         }
+
+        @media (max-width: 768px) {
+            align-self: flex-start;
+        }
     }
     .third-line{
         display: flex;
@@ -228,6 +275,10 @@ const RightSide = styled.div`
         }
         .email-address{
             color: #0C3A52;
+        }
+
+        @media (max-width: 768px) {
+            align-self: flex-start;
         }
     }
 

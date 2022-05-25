@@ -39,6 +39,12 @@ const Main = styled.div`
     align-items:center;
     padding:20px 60px;
     background-color: #0C3A52;
+
+    @media (max-width: 768px) {
+        flex-direction:column;
+        align-items:center;
+        padding:20px 0px;
+    }
 `;
 
 const Icons = styled.div`
@@ -46,7 +52,14 @@ const Icons = styled.div`
         border: 4px solid white;
         border-radius: 50%;
         margin: 0px 10px;
+        
+        @media (max-width: 768px) {
+            margin: 0px 5px;
+            border:2px solid white;
+            border-radius: 50%;
+        }
     }
+    
 `;
 
 const Copyright = styled.div`

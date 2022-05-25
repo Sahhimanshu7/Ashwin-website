@@ -97,6 +97,13 @@ const Main = styled.div`
     
     background-color:white;
     z-index:101;
+
+    @media (max-width: 768px) {
+      margin:0px;
+      
+      align-items:center;
+      padding:20px 0px;
+    }
     
     
 `;

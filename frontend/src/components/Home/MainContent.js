@@ -69,6 +69,12 @@ const Main = styled.div`
     height:80vh;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        height:auto;
+    }
 `;
 
 const RightScreen = styled.div`
@@ -83,6 +89,11 @@ const Slider = styled.div`
     border-radius:10px;
     padding:3px;
     background-color:#F37527;
+
+    @media (max-width: 768px) {
+       display:none;
+            
+        }
 `;
 
 const Button = styled.button`

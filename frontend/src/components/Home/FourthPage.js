@@ -52,6 +52,10 @@ const HeaderSubText = styled.h3`
     align-self:center;
     font-size:40px;
     font-weight:700;
+
+    @media (max-width: 768px) {
+        font-size:20px;
+    }
 `;
 
 const LinkWrapper = styled.div`
@@ -59,4 +63,9 @@ const LinkWrapper = styled.div`
     justify-content:space-between;
 
     margin-bottom:60px;
+
+    @media (max-width: 768px) {
+        flex-direction:column;
+        align-items:center;
+    }
 `;

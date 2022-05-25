@@ -38,6 +38,9 @@ const Main = styled.div`
         height:260px;
         padding:20px 50px;
     }
+    @media (max-width: 768px) {
+        margin:10px;
+    }
 `;
 
 
