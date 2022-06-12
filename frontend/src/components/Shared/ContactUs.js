@@ -51,7 +51,7 @@ function ContactUs() {
                         <input type="email" name="email" placeholder="ENTER YOUR EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className='contact-number'>
-                        <input type="number" name="number" placeholder="ENTER YOUR PHONE NUMBER" value={number} onChange={(e) => setNumber(e.target.value)} />
+                        <input type="text" name="number" placeholder="ENTER YOUR PHONE" value={number} onChange={(e) => setNumber(e.target.value)} />
                     </div>
                     <div className='contact-message'>
                         <textarea name="message" placeholder="ENTER YOUR MESSAGE" value={message} onChange={(e) => setMessage(e.target.value)} />
@@ -103,8 +103,10 @@ const ContactUsContainer = styled.div`
 
     @media (max-width: 768px) {
         flex-direction: column;
-        align-items: center;
-        margin: 0;
+        // align-items: center;
+       
+        margin-left: 20px;
+        margin-top: 20px;
     }
 `;
 
@@ -158,6 +160,8 @@ const ContactFormBody = styled.div`
 
         @media (max-width: 768px) {
             width: 100%;
+            margin-bottom: -10px;
+            margin-top: -20px;
         }
     }
     .contact-email input{
@@ -172,6 +176,7 @@ const ContactFormBody = styled.div`
 
         @media (max-width: 768px) {
             width: 100%;
+            margin-bottom: -10px;
         }
     }
     .contact-number input{
@@ -186,6 +191,7 @@ const ContactFormBody = styled.div`
 
         @media (max-width: 768px) {
             width: 100%;
+            margin-bottom: -10px;
         }
     }
     .contact-message textarea{
@@ -201,6 +207,7 @@ const ContactFormBody = styled.div`
 
         @media (max-width: 768px) {
             width: 120%;
+            margin-bottom: -10px;
         }
     }
 `;
@@ -228,6 +235,8 @@ const RightSide = styled.div`
 
         margin-top: 20px;
         margin-bottom: 20px;
+
+        padding: 0px 5px;
     }
     
     p{
@@ -242,7 +251,8 @@ const RightSide = styled.div`
         align-self: flex-end;
 
         @media (max-width: 768px) {
-            align-self: center;
+            align-self: flex-start;
+            margin-bottom: -20px;
         }
     }
     .first-line{
@@ -250,7 +260,7 @@ const RightSide = styled.div`
         align-self: flex-end;
 
         @media (max-width: 768px) {
-            align-self: center;
+            align-self: flex-start;
         }
     }
     .second-line{

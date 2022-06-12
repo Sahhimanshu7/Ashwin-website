@@ -30,13 +30,9 @@ function MainContent() {
     </LeftScreen>
     <RightScreen>
         <Slider>
-        <SimpleImageSlider
-        width={656}
-        height={430}
-        images={images}
-        autoPlay={true}
-        autoPlayTime={2000}
-      />
+        
+        <img src={img1} alt="logo" />
+      
       </Slider>
     </RightScreen>
     </Main>
@@ -48,6 +44,13 @@ export default MainContent
 const LeftScreen = styled.div`
     padding:15% 80px;
 
+    // @media (max-width: 768px) {
+    //     display:flex;
+    //     flex-direction:column;
+    //     justify-content:center;
+    //     align-items:center;
+    // }
+
 `;
 
 const LeftScreenHeader = styled.div`
@@ -57,7 +60,14 @@ const LeftScreenHeader = styled.div`
     text-transform:uppercase;
 
     color:#0C3A52;
-`;
+
+    @media (max-width: 768px) {
+        font-size:40px;
+        
+        
+        
+    }
+        `;
 
 const LeftScreenContent = styled.div`
     font-weight:600;
@@ -74,6 +84,7 @@ const Main = styled.div`
         flex-direction: column;
         align-items: center;
         height:auto;
+        
     }
 `;
 
@@ -91,7 +102,11 @@ const Slider = styled.div`
     background-color:#F37527;
 
     @media (max-width: 768px) {
-       display:none;
+        margin-top:-20px;
+    img{
+        width:260px;
+        height:300px;
+    }
             
         }
 `;

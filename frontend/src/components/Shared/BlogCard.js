@@ -72,7 +72,7 @@ const BlogCardTitle = styled.div`
     font-size:20px;
     font-weight:700;
     color:#0C3A52;
-    margin-top:10px;
+    margin-top:-70px;
     margin-bottom:10px;
     text-align:center;
 

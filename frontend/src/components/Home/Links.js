@@ -40,6 +40,11 @@ const Main = styled.div`
     }
     @media (max-width: 768px) {
         margin:10px;
+
+        img{
+            width:80%;
+            padding:20px 20px;
+        }
     }
 `;
 
@@ -53,6 +58,7 @@ const TextContainer = styled.div`
         color:${props => props.inputColor || '#0C3A52'};
     }
     button{
+        margin-top:-20px;
         border: 1px solid #F37527;
         color: #FFFFFF;
         border-radius: 10px;

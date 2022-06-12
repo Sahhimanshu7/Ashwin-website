@@ -76,6 +76,8 @@ function NepaliBlog() {
 export default NepaliBlog
 
 const BlogContainer = styled.div`
+
+ 
     
 `;
 
@@ -97,6 +99,11 @@ const MainContent = styled.div`
   margin: 0 auto;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
   
 
 `;
@@ -134,6 +141,10 @@ margin:20px;
   }
   input:focus{
     outline: none;
+  }
+
+  @media (max-width: 768px) {
+    align-self: center;
   }
 
 `;
@@ -219,4 +230,9 @@ const BlogContainerContainer = styled.div`
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 0px;
+  }
 `;

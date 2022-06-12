@@ -19,15 +19,7 @@ function Blogs() {
   return (
     <MainContainer>
       <Slider>
-        <SimpleImageSlider
-        width={1310}
-        height={600}
-        images={images}
-        autoPlay={true}
-        autoPlayTime={2000}
-        showNavs={true}
-        navSize={70}
-      />
+      <img src={img1} alt="logo" />
       </Slider>
       <FourthPage />
       <ContactUs />
@@ -45,12 +37,21 @@ const MainContainer = styled.div`
 `;
 
 const Slider = styled.div`
-    width:91%;
+   width:300px;
+    height:270px;
     margin-left:50px;
     border:2px solid #F37527;
     border-radius:10px;
-    padding:3px;
+    padding:0.2px;
     background-color:#F37527;
 
     margin-bottom:60px;
+
+    @media (max-width: 768px) {
+      margin-top:40px;
+      margin-bottom:0px;
+      img{
+          width:300px;
+          height:270px;
+      }
 `;

@@ -196,11 +196,12 @@ function SignUpUser() {
             {showFacebookLogin? 
             <FacebookLogin
             appId="502334878106369"
+            buttonText="Log in with Facebook"
             autoLoad={false}
             fields="name,email,picture"
             callback={responseFacebook}
             cssClass="my-facebook-button-class"
-            icon="fa-facebook"
+            // icon="fa-facebook"
             
         /> : null    
         }
@@ -226,6 +227,12 @@ color: white;
 border: none;
 padding: 10px;
 }
+
+@media (max-width: 768px) {
+    button{
+        padding: 5px;
+    }
+}
 `;
 const Main = styled.div`
     display: flex;
@@ -238,6 +245,14 @@ const Main = styled.div`
         font-weight: 900;
         color: #F37527;
     }
+
+    @media (max-width: 768px) {
+        justify-content: flex-start;
+        h1{
+            font-size: 30px;
+            font-weight: 700;
+        }
+    }
 `;
 
 const LogIn = styled.div`
@@ -245,12 +260,14 @@ const LogIn = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 20vh;
+    height: 15vh;
     width: 100%;
     .my-facebook-button-class{
-        background-color: #3b5998;
+        background-color: #F37527;
         color: white;
         border: none;
         padding: 10px;
+        
     }
+
 `;
